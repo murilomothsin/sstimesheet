@@ -1,0 +1,15 @@
+<%= link_to('<<', month_path(@month.pred.year, @month.pred.month)) %> <%= @month.name %> <%= link_to('>>', month_path(@month.next.year, @month.next.month))  %>
+<table>
+  <% @month.days.each do |day| %>
+    <tr <%= raw "style='background: #ccc'" if day.weekend? %>>
+      <td><%= day.day %></td>
+      <td>
+        <% day.tasks.each do |task| %>
+          <%=  task.description %>
+          <br />
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

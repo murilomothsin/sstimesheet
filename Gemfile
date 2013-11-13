@@ -9,6 +9,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
+gem 'bootstrap-sass-rails', '~> 2.2.2.0'
+gem 'hashie'
+
+group :development do
+  gem 'pry'
+end
 
 group :doc do
   gem 'sdoc', require: false
