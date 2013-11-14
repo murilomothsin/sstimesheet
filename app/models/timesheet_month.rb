@@ -1,5 +1,6 @@
 class TimesheetMonth
   attr_reader :month
+  attr_reader :year
 
   def initialize(month, year, user)
     @month = month
@@ -14,7 +15,7 @@ class TimesheetMonth
   end
 
   def name
-    Date.new(@year, @month, 1).strftime("%B")
+    Date.new(@year, @month, 1).strftime('%B')
   end
 
   def next

@@ -8,6 +8,27 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require twitter/bootstrap
  *= require_self
- *= require_tree .
+ *= require_tree
  */
+
+ body {
+  padding-top: 70px;
+ }
+
+ .form-control {
+  text-align: center;
+ }
+
+ .weekend {
+  background-color: #DBDBDB;
+ }
+
+ .weekend td {
+    border-top: 1px solid #bdc3c7 !important;
+ }
+
+.today {
+  background-color: #E66053;
+}

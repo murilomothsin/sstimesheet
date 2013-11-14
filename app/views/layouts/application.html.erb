@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Sstimesheet</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Sstimesheet</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<h1>Super Simple TimeSheet</h1>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Super Simple Timesheet</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= render 'devise/menu/registration_items' %></li>
+          <li><%= render 'devise/menu/login_items' %></li>
+        </ul>
+      </div>
+      </div>
+    </div>
 
-<ul class="hmenu">
-  <%= render 'devise/menu/registration_items' %>
-  <%= render 'devise/menu/login_items' %>
-</ul>
+    <div class="container main-container">
+      
+      <div class="page-header">
+        <h1>Super Simple Timesheet</h1>
+        <p class="lead">Track your time, don't miss your tasks.</p>
+      </div>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+      <% if notice.present? %>
+        <p class="notice alert-warning"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+      <hr />
+    </div>  
 
-<%= yield %>
-
-</body>
+  </body>
 </html>

@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise'
-gem 'bootstrap-sass-rails', '~> 2.2.2.0'
+gem 'bootstrap-sass-rails', '~> 3.0.2.1'
 gem 'hashie'
 
 group :development do
@@ -24,4 +24,4 @@ group :production do
   gem 'rails_12factor'
 end
 
-ruby "2.0.0"
+ruby '2.0.0'
