@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+
+<div class="panel-heading">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <%= link_to(month_path(@month.pred.year, @month.pred.month), class: "btn btn-default") do %>
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          <% end %>
+        </span>
+        <span type="text" class="form-control"><%= @month.name %>, <%= @month.year %></span>
+        <span class="input-group-btn">
+          <%= link_to(month_path(@month.next.year, @month.next.month), class: "btn btn-default") do %>
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          <% end %>
+        </span>
+      </div>
+    </div>
+    <span type="button">
+      <%= link_to 'Today', current_month_path, :class => "btn btn-default" %>
+    </span>
+  </div>
+</div>
+
+
+  <table class="table" id="month">
+    <tbody>
+      <% @month.days.each do |day| %>
+        <tr class="<%= day.day_type %>">
+          <td class="day"><%= day.day %></td>
+          <td class="task">
+            <ul>
+            <% day.tasks.each do |task| %>
+              <li><%=  task.description %></li>
+            <% end %>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

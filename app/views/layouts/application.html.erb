@@ -2,8 +2,7 @@
 <html>
   <head>
     <title>Sstimesheet</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -37,7 +36,11 @@
       <% end %>
       <%= yield %>
       <hr />
-    </div>  
+    </div> 
+
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag params[:controller] if File.exists?("#{Rails.root}/app/assets/javascripts/#{params[:controller]}.js") %>
+    <%= javascript_include_tag params[:controller] + "-" + params[:action] if File.exists?("#{Rails.root}/app/assets/javascripts/#{params[:controller]}-#{params[:action]}.js") %>
 
   </body>
 </html>
