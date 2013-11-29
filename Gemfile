@@ -14,6 +14,7 @@ gem 'hashie'
 
 group :development do
   gem 'pry'
+  gem 'pry-nav'
 end
 
 group :doc do

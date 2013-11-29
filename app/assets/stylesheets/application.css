@@ -38,8 +38,6 @@
   text-align: center;
 }
 
-
-
 #month li > input {
   width: 100%;
 }
@@ -50,33 +48,32 @@
 }
 
 #month li.saving {
-  background-size: 40px 40px;
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-            transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-            transparent 75%, transparent);                    
-  box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-  color: #fff;
-  animation: animatedBackground 5s linear infinite;
-  -ms-animation: animatedBackground 5s linear infinite;
-  -moz-animation: animatedBackground 5s linear infinite;
-  -webkit-animation: animatedBackground 5s linear infinite;
-  background-color: #999;
-  color: #333;
+  background-color: #E7E7E7;
+  animation: progressBar 0.5s;
+  -webkit-animation: progressBar 0.5s;
+  -ms-animation: progressBar 0.5s;
+  -moz-animation: progressBar 0.5s;
+  transition: 0.2s;
 }
 
-@keyframes animatedBackground {
-  from { background-position: 0 0; }
-  to { background-position: -80px 0; }
+#month li.error {
+  background-color: #f00;
+  transition: 0.2s;
 }
-@-webkit-keyframes animatedBackground {
-  from { background-position: 0 0; }
-  to { background-position: -80px 0; }
+
+@keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
 }
-@-ms-keyframes animatedBackground {
-  from { background-position: 0 0; }
-  to { background-position: -80px 0; }
+@-webkit-keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
 }
-@-moz-keyframes animatedBackground {
-  from { background-position: 0 0; }
-  to { background-position: -80px 0; }
+@-ms-keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@-moz-keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
 }

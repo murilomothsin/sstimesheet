@@ -29,7 +29,7 @@ $(function () {
   };
 
   var saveTask = function(trObj) {
-    var inputObj = $('input', trObj);
+    var inputObj = $('input[type=text]', trObj);
     var taskDescription = inputObj.val();
     var containerObj = inputObj.parent();
 
@@ -39,9 +39,23 @@ $(function () {
       containerObj.addClass('saving');
       containerObj.html(taskDescription);
 
-      window.setTimeout(function() {
-        containerObj.removeClass('saving');
-      }, 1000);  
+      var data = {
+        task: {
+          year: $('#year').val(),
+          month: $('#month').val(),
+          day: trObj.find('input[type=hidden]').val(),
+          description: taskDescription
+        }
+      };
+
+      $.post("/tasks", data)
+        .done(function() {
+          containerObj.removeClass('saving');
+        })
+        .fail(function() {
+          containerObj.removeClass('saving');
+          containerObj.addClass('error');
+        });
     }
 
     // TODO: send val to backend

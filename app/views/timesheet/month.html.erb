@@ -24,13 +24,20 @@
 </div>
 
 
+  <%= hidden_field_tag 'month', @month.month %>
+  <%= hidden_field_tag 'year', @month.year %>
+
+
   <table class="table" id="month">
     <tbody>
       <% @month.days.each do |day| %>
         <tr class="<%= day.day_type %>">
-          <td class="day"><%= day.day %></td>
+          <td class="day">
+            <%= day.day %>
+            <%= hidden_field_tag "day-#{day.day}", day.day %>
+          </td>
           <td class="task">
-            <ul>
+            <ul class="list-inline">
             <% day.tasks.each do |task| %>
               <li><%=  task.description %></li>
             <% end %>
