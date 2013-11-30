@@ -13,6 +13,7 @@ gem 'bootstrap-sass-rails', '~> 3.0.2.1'
 gem 'hashie'
 
 group :development do
+  gem 'sqlite3'
   gem 'pry'
   gem 'pry-nav'
 end
