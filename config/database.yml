@@ -1,7 +1,5 @@
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: sstimesheet_development
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
-  username: dev
-  password: dev
+  timeout: 5000
