@@ -57,7 +57,5 @@ $(function () {
           containerObj.addClass('error');
         });
     }
-
-    // TODO: send val to backend
   };
 });
