@@ -1,0 +1,71 @@
+$iconSpritePath: url('/assets/glyphicons-halflings.png');
+$iconWhiteSpritePath: url('/assets/glyphicons-halflings-white.png');
+
+body {
+  padding-top: 70px;
+ }
+
+.form-control {
+  text-align: center;
+ }
+
+.weekend {
+  background-color: #DBDBDB;
+ }
+
+.weekend td {
+    border-top: 1px solid #bdc3c7 !important;
+ }
+
+.today {
+  background-color: #E66053;
+}
+
+#month td.day {
+  width: 40px;
+  text-align: center;
+}
+
+#month li > input {
+  width: 100%;
+}
+
+#month li {
+  width: 100%;
+  padding: 2px;
+}
+
+#month li.saving {
+  background-color: #E7E7E7;
+  animation: progressBar 0.5s;
+  -webkit-animation: progressBar 0.5s;
+  -ms-animation: progressBar 0.5s;
+  -moz-animation: progressBar 0.5s;
+  transition: 0.2s;
+}
+
+#month li.error {
+  background-color: #f00;
+  transition: 0.2s;
+}
+
+@keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@-webkit-keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@-ms-keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@-moz-keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+ul {
+  margin-bottom: 0;
+}
