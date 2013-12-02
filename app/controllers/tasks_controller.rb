@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
 
+  before_action :set_task, only: [:update, :destroy]
+
   # POST /tasks
   def create
     @task = Task.new(task_params)
@@ -12,12 +14,26 @@ class TasksController < ApplicationController
     end
   end
 
-  # PUT /tasks
+  # PUT /tasks/:id
   def update
+    if @task.update(task_params)
+      head :no_content
+    else
+      render json: @task.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /tasks/:id
+  def destroy
+    @task.destroy
     head :no_content
   end
 
   private
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
   def task_params
     params.require(:task).permit(:year, :month, :day, :description)
