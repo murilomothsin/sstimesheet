@@ -20,6 +20,9 @@ body {
 .today {
   background-color: #13987e;
   color: #fff;
+  input {
+    color: white;
+  }
 }
 
 #month {
@@ -31,6 +34,10 @@ body {
   td.day {
     width: 40px;
     text-align: center;
+  }
+
+  td.task {
+    padding-left: 16px;
   }
 
   li > input {
@@ -54,10 +61,10 @@ body {
     transition: 0.2s;
   }
 
-   li.error {
-      background-color: #f00;
-      transition: 0.2s;
-    }
+  li.error {
+    background-color: #f00;
+    transition: 0.2s;
+  }
 }
 
 @keyframes progressBar {

@@ -25,7 +25,7 @@ $(function () {
   var editTask = function(liObj, trObj) {
     var taskId = liObj.attr('taskid');
     var taskDescription = liObj.text();
-    var liContentObj = $('<input type="text" value="' + taskDescription + '" taskid="' + taskId + '" />');
+    var liContentObj = $('<input type="text" oldvalue="' + taskDescription + '" value="' + taskDescription + '" taskid="' + taskId + '" />');
     liObj.html(liContentObj);
 
     addInputEvents(liObj.find('input'), trObj);
@@ -52,17 +52,18 @@ $(function () {
 
   var saveTask = function(trObj) {
     var task = getTaskData(trObj);
-    task.containerObj.addClass('saving');
     task.containerObj.html(task.task.description);
 
-    if(task.task.id) {
-      if(task.task.description == "") {
-        deleteTask(task);
+    if(task.oldValue != task.task.description) {
+      if(task.task.id) {
+        if(task.task.description == "") {
+          deleteTask(task);
+        } else {
+          updateTask(task);
+        }     
       } else {
-        updateTask(task);
-      }     
-    } else {
-      createTask(task);
+        createTask(task);
+      }
     }
   };
 
@@ -104,6 +105,8 @@ $(function () {
   };
 
   var saveDataTask = function(task_data, url, method, containerObj, completeCallback) {
+    containerObj.addClass('saving');
+
     $.ajax({
         url: url,
         method: method,
@@ -129,6 +132,7 @@ $(function () {
     return {
       'inputObj': inputObj,
       'containerObj': inputObj.parent(),
+      'oldValue': inputObj.attr('oldValue'),
       'task': {
         'id': inputObj.attr('taskid'),
         'year': $('#year').val(),

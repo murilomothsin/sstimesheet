@@ -37,7 +37,7 @@
             <%= hidden_field_tag "day-#{day.day}", day.day %>
           </td>
           <td class="task">
-            <ul class="list-inline">
+            <ul>
             <% day.tasks.each do |task| %>
               <li taskid="<%= task.id %>"><%=  task.description %></li>
             <% end %>
