@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113201846) do
+ActiveRecord::Schema.define(version: 20131204185429) do
 
   create_table "tasks", force: true do |t|
     t.integer "user_id"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20131113201846) do
     t.integer "month"
     t.integer "day"
     t.string  "description"
+  end
+
+  create_table "user_preferences", force: true do |t|
+    t.integer "user_id"
+    t.string  "key"
+    t.string  "value"
   end
 
   create_table "users", force: true do |t|

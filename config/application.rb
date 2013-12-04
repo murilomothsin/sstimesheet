@@ -19,5 +19,7 @@ module Sstimesheet
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.custom = YAML.load_file('config/application.yml')[Rails.env] rescue {}
   end
 end

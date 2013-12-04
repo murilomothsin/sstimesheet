@@ -1,0 +1,46 @@
+defaults: &defaults
+  themes:
+    - name: Amelia
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/amelia/bootstrap.min.css
+
+    - name: Cerulean
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/cerulean/bootstrap.min.css
+
+    - name: Cosmo
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/cosmo/bootstrap.min.css
+
+    - name: Cyborg
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/cyborg/bootstrap.min.css
+
+    - name: Flatly
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/flatly/bootstrap.min.css
+
+    - name: Journal
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/journal/bootstrap.min.css
+
+    - name: Readable
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/readable/bootstrap.min.css
+
+    - name: Simplex
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/simplex/bootstrap.min.css
+
+    - name: Slate
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/slate/bootstrap.min.css
+
+    - name: Spacelab
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/spacelab/bootstrap.min.css
+
+    - name: United
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/united/bootstrap.min.css
+
+    - name: Yeti
+      path: //netdna.bootstrapcdn.com/bootswatch/3.0.2/yeti/bootstrap.min.css
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

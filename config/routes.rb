@@ -6,4 +6,6 @@ Sstimesheet::Application.routes.draw do
   get 'month', to: 'timesheet#month', as: 'current_month'
 
   resources :tasks, only: [:create, :update, :destroy]
+
+  put 'user-preferences/:key', to: 'user_preferences#set'
 end

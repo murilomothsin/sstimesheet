@@ -2,8 +2,14 @@ body {
   padding-top: 70px;
  }
 
+#user-dropdown li:first-child {
+  text-align: center;
+  padding: 10px;
+}
+
 .form-control {
   text-align: center;
+  padding: 10px;
  }
 
 .weekend {
