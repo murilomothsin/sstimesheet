@@ -19,7 +19,7 @@ $(function () {
     var liObj = $('<li><input type="text" value="" /></li>')
       .appendTo(trObj.find('ul'));
 
-    addInputEvents(liObj.find('input'), trObj);
+    addInputEvents(liObj, trObj);
   };
 
   var editTask = function(liObj, trObj) {
@@ -28,20 +28,42 @@ $(function () {
     var liContentObj = $('<input type="text" oldvalue="' + taskDescription + '" value="' + taskDescription + '" taskid="' + taskId + '" />');
     liObj.html(liContentObj);
 
-    addInputEvents(liObj.find('input'), trObj);
+    addInputEvents(liObj, trObj);
   };
 
-  var addInputEvents = function(inputObj, trObj) {
-    inputObj
+  var enterKeyBehaviour = function(e, liObj, trObj) {
+    saveTask(trObj);
+
+    // If there is a task after the current task edit it!
+    var nextLiObj = (e.shiftKey) ? liObj.prev('li') : liObj.next('li');
+
+    if (nextLiObj.length) {
+      editTask(nextLiObj, trObj);
+    } else {
+      var newTrObj = (e.shiftKey) ? trObj.prev('tr') : trObj;
+
+      if(newTrObj.length) {
+        newTask(trObj);
+      }
+    }
+  };
+
+  var tabKeyBehaviour = function(e, trObj) {
+    var newTrObj = (e.shiftKey) ? trObj.prev('tr') : trObj.next('tr');
+
+    saveTask(trObj);
+    newTask(newTrObj);
+  };
+
+  var addInputEvents = function(liObj, trObj) {
+    liObj.find('input')
       .focus()
       .keydown(function(e) {
           if (e.which == 13) {
-            saveTask(trObj);
-            newTask(trObj);
+            enterKeyBehaviour(e, liObj, trObj);
             e.preventDefault();
           } else if (e.which == 9) {
-            saveTask(trObj);
-            newTask(trObj.next());
+            tabKeyBehaviour(e, trObj);
             e.preventDefault();
           }
         })
