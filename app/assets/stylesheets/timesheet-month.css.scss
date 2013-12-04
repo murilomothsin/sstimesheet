@@ -1,6 +1,3 @@
-$iconSpritePath: url('/assets/glyphicons-halflings.png');
-$iconWhiteSpritePath: url('/assets/glyphicons-halflings-white.png');
-
 body {
   padding-top: 70px;
  }
@@ -53,12 +50,8 @@ body {
   }
 
   li.saving {
-    background-color: #E7E7E7;
-    animation: progressBar 0.5s;
-    -webkit-animation: progressBar 0.5s;
-    -ms-animation: progressBar 0.5s;
-    -moz-animation: progressBar 0.5s;
-    transition: 0.2s;
+    opacity: 0.2;
+    // TODO: Add just a spinner in the end of the line
   }
 
   li.error {
@@ -66,22 +59,4 @@ body {
     transition: 0.2s;
   }
 }
-
-@keyframes progressBar {
-  0% { width: 0; }
-  100% { width: 100%; }
-}
-@-webkit-keyframes progressBar {
-  0% { width: 0; }
-  100% { width: 100%; }
-}
-@-ms-keyframes progressBar {
-  0% { width: 0; }
-  100% { width: 100%; }
-}
-@-moz-keyframes progressBar {
-  0% { width: 0; }
-  100% { width: 100%; }
-}
-
 
