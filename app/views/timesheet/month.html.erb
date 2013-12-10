@@ -9,7 +9,7 @@
             <span class="glyphicon glyphicon-chevron-left"></span>
           <% end %>
         </span>
-        <span type="text" class="form-control"><%= @month.name %>, <%= @month.year %></span>
+        <span type="text" class="form-control current-month-field"><%= @month.name %>, <%= @month.year %></span>
         <span class="input-group-btn">
           <%= link_to(month_path(@month.next.year, @month.next.month), class: "btn btn-default") do %>
             <span class="glyphicon glyphicon-chevron-right"></span>
