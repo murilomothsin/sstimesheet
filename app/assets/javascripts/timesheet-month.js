@@ -11,15 +11,26 @@ $(function () {
     } else {
       if (!$this.find('input').length) {
         newTask(trObj);
-      }  
-    }
+      }
+    };
   });
+
+  // Creates new task on the first day on page initialization
+  var createTaskOnToday = function() {
+    var todayTrObj = $('table#month tr.today');
+    if (todayTrObj.length) {
+      var liObj = newTask(todayTrObj);
+        window.scrollTo(0, liObj.find('input').offset().top - 200);
+    }
+  };
 
   var newTask = function(trObj) {
     var liObj = $('<li><input type="text" value="" /></li>')
       .appendTo(trObj.find('ul'));
 
     addInputEvents(liObj, trObj);
+
+    return liObj;
   };
 
   var editTask = function(liObj, trObj) {
@@ -82,7 +93,7 @@ $(function () {
           deleteTask(task);
         } else {
           updateTask(task);
-        }     
+        }
       } else {
         createTask(task);
       }
@@ -112,7 +123,7 @@ $(function () {
       'PUT',
       task.containerObj
     );
-  };  
+  };
 
   var deleteTask = function(task){
     saveDataTask(
@@ -167,8 +178,9 @@ $(function () {
 
   var removeTaskElm = function(containerObj) {
     containerObj.fadeOut('slow', function() {
-      containerObj.remove();  
+      containerObj.remove();
     });
   };
 
+  createTaskOnToday();
 });
