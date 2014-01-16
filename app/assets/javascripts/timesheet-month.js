@@ -66,6 +66,15 @@ $(function () {
     newTask(newTrObj);
   };
 
+  var escKeyBehaviour = function(e, trObj) {
+    var task = getTaskData(trObj);
+    if (task.oldValue) {
+      task.containerObj.html(task.oldValue);
+    } else {
+      task.containerObj.remove();
+    }
+  };
+
   var addInputEvents = function(liObj, trObj) {
     liObj.find('input')
       .focus()
@@ -76,11 +85,14 @@ $(function () {
           } else if (e.which == 9) {
             tabKeyBehaviour(e, trObj);
             e.preventDefault();
+          } else if (e.which == 27) {
+            escKeyBehaviour(e, trObj);
+            e.preventDefault();
           }
         })
-        .focusout(function() {
-          saveTask(trObj);
-        });
+      .focusout(function() {
+        saveTask(trObj);
+      });
   };
 
   var saveTask = function(trObj) {
